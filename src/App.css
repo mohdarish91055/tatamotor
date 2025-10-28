@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+body {
+  font-family: UniNeuRegular !important;
+  background-color: black;
+}
