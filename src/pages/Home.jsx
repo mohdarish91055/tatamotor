@@ -4,6 +4,7 @@ import Carousel from "../components/Carousel";
 import FAQ from "../components/FAQ";
 import faq from "../assets/images/faq.jpeg";
 import Cart from "../components/Cart";
+import icon from "../assets/icon/pdf_icon.png";
 
 export default function Home() {
   return (
@@ -53,8 +54,8 @@ export default function Home() {
             <button className="border border-[#3080e2] text-white px-4 py-2 rounded ">
               Book Now
             </button>
-            <button className="bg-gray-600 text-white px-4 py-2 rounded-full ">
-              <FileText size={18} />
+            <button className="bg-black border border-[#3080e2]  w-12 h-12 rounded-full flex items-center justify-center hover:bg-gray-900 transition">
+              <img src={icon} alt="icon" className="" />
             </button>
           </div>
         </div>
@@ -100,7 +101,7 @@ export default function Home() {
           <Cart />
         </div>
         <div>
-          <button className="bg-[#3080e2] text-white px-4 py-2 rounded ">
+          <button className="bg-[#3080e2] text-white px-4 py-2 rounded mb-4">
             View All
           </button>
         </div>

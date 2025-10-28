@@ -13,7 +13,7 @@ const Cart = () => {
       {images.map((i, index) => (
         <div
           key={index}
-          className="bg-black text-white rounded-2xl overflow-hidden shadow-lg"
+          className="bg-black text-white  overflow-hidden shadow-lg"
         >
           {/* Top Image */}
           <div className="relative bg-gray-900">

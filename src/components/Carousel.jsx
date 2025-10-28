@@ -1,23 +1,24 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import "swiper/css";
+import "swiper/css/pagination";
+
 import a from "../assets/images/carousel-images/435.png";
 import b from "../assets/images/carousel-images/438.png";
 import c from "../assets/images/carousel-images/439.png";
 import d from "../assets/images/carousel-images/6233.png";
 import e from "../assets/images/carousel-images/6523.png";
 
-// Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-
-// Swiper modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
 export default function App() {
+  const swiperRef = useRef();
+
   return (
-    <div className="w-full max-w-5xl mx-auto mt-10">
+    <div className="w-full max-w-5xl mx-auto mt-10 relative">
+      {/* Swiper */}
       <Swiper
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
@@ -27,26 +28,32 @@ export default function App() {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper  "
+        modules={[Autoplay, Pagination]}
+        className="mySwiper"
       >
-        <SwiperSlide className=" text-white flex justify-center items-center h-64 text-2xl font-semibold">
-          <img src={a} />
-        </SwiperSlide>
-        <SwiperSlide className=" text-white flex justify-center items-center h-64 text-2xl font-semibold">
-          <img src={b} />
-        </SwiperSlide>
-        <SwiperSlide className=" text-white flex justify-center items-center h-64 text-2xl font-semibold">
-          <img src={c} />
-        </SwiperSlide>
-        <SwiperSlide className=" text-white flex justify-center items-center h-64 text-2xl font-semibold">
-          <img src={d} />
-        </SwiperSlide>
-        <SwiperSlide className=" text-white flex justify-center items-center h-64 text-2xl font-semibold">
-          <img src={e} />
-        </SwiperSlide>
+        {[a, b, c, d, e].map((img, i) => (
+          <SwiperSlide
+            key={i}
+            className="flex justify-center items-center h-64"
+          >
+            <img src={img} alt={`Slide ${i}`} className="object-contain" />
+          </SwiperSlide>
+        ))}
       </Swiper>
+
+      <button
+        className="absolute bottom-4 left-4 text-white p-3 rounded-full hover:bg-black transition z-10"
+        onClick={() => swiperRef.current?.slidePrev()}
+      >
+        <ChevronLeft size={20} />
+      </button>
+
+      <button
+        className="absolute bottom-4 right-4  text-white p-3 rounded-full hover:bg-black transition z-10"
+        onClick={() => swiperRef.current?.slideNext()}
+      >
+        <ChevronRight size={20} />
+      </button>
     </div>
   );
 }

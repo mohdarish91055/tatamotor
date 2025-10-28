@@ -3,7 +3,7 @@ import { Search } from "lucide-react";
 import first from "../assets/images/first.png";
 import tata from "../assets/images/tata-motors-logo.png";
 import tata_one from "../assets/images/tata_one.png";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Phone, FileText } from "lucide-react";
 
 const Navbar = () => {
   return (
@@ -19,28 +19,39 @@ const Navbar = () => {
       </div>
 
       <div className="container w-4/5 mx-auto ">
-        <div className="mx-auto">
-          <div className="w-full px-56 pr-0  overflow-x-auto">
-            <ul className="flex flex-row flex-nowrap items-center text-sm gap-6 whitespace-nowrap">
-              <li>EV Charging Station</li>
-              <li>Local Service Network</li>
-              <li>Dealer Locator</li>
-              <li>1800&nbsp;209&nbsp;7979</li>
-              <li>
-                <button className="bg-white text-black px-4 py-2 border border-gray-300">
-                  Book Now
-                </button>
+        <div className=" mx-auto">
+          <div className="flex flex-row text-xs items-cente justify-between w-full px-56 pr-0  overflow-x-auto">
+            <ul className="text-xs flex   flex-row  items-center  gap-5 whitespace-nowrap">
+              <li className="flex">
+                <FileText size={16} />
+                EV Charging Station
               </li>
-              <li>
-                <button className="bg-white text-black px-4 py-2 border border-gray-300">
-                  Find Your Truck
-                </button>
+              <li className="flex">
+                <FileText size={16} />
+                Local Service Network
+              </li>
+              <li className="flex">
+                <FileText size={16} />
+                Dealer Locator
+              </li>
+              <li className="flex">
+                {" "}
+                <Phone size={16} /> 1800&nbsp;209&nbsp;7979
               </li>
             </ul>
+            <div className="flex flex-row gap-2 whitespace-nowrap">
+              <button className="bg-white text-black px-3 py-1 border border-gray-300">
+                Book Now
+              </button>
+
+              <button className="bg-white text-black px-3 py-1 border border-gray-300">
+                Find Your Truck
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className="flex justify-between ">
+        <div className="flex justify-between mt-3 mb-3 ">
           <div className="flex align-center ">
             <a href="#">
               <img src={tata} />
@@ -56,7 +67,7 @@ const Navbar = () => {
       <nav className="w-full bg-[#212529]">
         <div className="w-4/5 mx-auto flex justify-between items-center overflow-x-auto">
           {/* Left Menu */}
-          <ul className="flex flex-row flex-nowrap items-center gap-6 whitespace-nowrap">
+          <ul className="flex flex-row flex-nowrap items-center gap-3 whitespace-nowrap">
             <li>Tata ACE</li>
             <li>Tata Intra</li>
             <li>Tata Yodha</li>
@@ -67,8 +78,8 @@ const Navbar = () => {
           </ul>
 
           {/* Right Buttons */}
-          <div className="flex flex-row  flex-nowrap">
-            <button className="flex items-center gap-2 px-4  bg-[#252229]">
+          <div className="flex flex-row  justify-between flex-nowrap">
+            <button className="flex items-center gap-2 px-4  bg-[#212529]">
               Search <Search />
             </button>
             <button className="flex items-center gap-2 px-4  bg-[#307FE2]">
